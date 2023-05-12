@@ -22,14 +22,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Spacecraft'
-        404:
-          description: No spacecraft found for the provided `spacecraftId`
+        401:
+          description: Bad credentials
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-        401:
-          description: Bad credentials
+        403:
+          description: Invalid permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: No spacecraft found for the provided `spacecraftId`
           content:
             application/json:
               schema:
